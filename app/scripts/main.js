@@ -58,34 +58,6 @@ var ChartView = Backbone.View.extend({
   el: '#chart',
   model: dataset,
   render: function() {
-    this.$el.children().detach();
-    var graph = new Rickshaw.Graph( {
-      element: this.el,
-      height: 250,
-      renderer: 'line',
-      min: this.model.min(),
-      series: this.model.data()
-    });
-  
-    var xAxis = new Rickshaw.Graph.Axis.Time({
-      graph: graph
-    });
-  
-    var yAxis = new Rickshaw.Graph.Axis.Y({
-      graph: graph,
-      tickFormat: function(y) {
-        return '$' + numeral(y).format('0,0');
-      }
-    });
-  
-    var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-      graph: graph,
-      yFormatter: function(y) { return '$' + numeral(y).format('0,0'); }
-    });
-  
-    xAxis.render();
-    yAxis.render();
-    graph.render();
     return this;
   }
 });
