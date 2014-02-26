@@ -5,7 +5,6 @@
 var settings = new Backbone.Model({
   term: 10,
   unit: 'years',
-  palette: new Rickshaw.Color.Palette({scheme: 'colorwheel'})
 });
 
 var settingsView = new Backbone.View({
@@ -14,7 +13,7 @@ var settingsView = new Backbone.View({
 
 var Loan = Backbone.Model.extend({
   initialize: function() {
-    this.set('color', settings.get('palette').color());
+    this.set('color', 'black');
   },
   defaults: {
     name: '',
