@@ -1,7 +1,5 @@
 /* global DataSet, ChartView */
 
-'use strict';
-
 var dataset = new DataSet();
 dataset.add({ name: 'First Financial', rate: 5 });
 dataset.add({ name: 'Secondary Savings', rate: 4.5 });
