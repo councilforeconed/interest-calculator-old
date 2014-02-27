@@ -18,7 +18,7 @@ var DataSet = Backbone.Collection.extend({
       },
       axis : {
         x: {
-          label: settings.get('units')
+          label: this.first().get('timeUnits')
         },
         y: {
           tick: {
