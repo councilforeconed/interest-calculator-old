@@ -14,7 +14,7 @@ var Account = Backbone.Model.extend({
   data: function() {
     var data = [this.get('name')];
     var amount = this.get('base');
-    _.times(this.get('term'), function(i) {
+    _.times(this.get('term') + 1, function(i) {
       data.push(amount);
       amount = amount + (amount * this.get('rate') / 100);
     }, this);

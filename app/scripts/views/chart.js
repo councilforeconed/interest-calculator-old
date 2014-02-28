@@ -1,4 +1,4 @@
-/* global Backbone, _, c3, dataset */
+/* global Backbone, _, c3, dataset, numeral */
 
 var ChartView = Backbone.View.extend({
   el: '#chart',
@@ -8,6 +8,16 @@ var ChartView = Backbone.View.extend({
     this.collection.on('add', this.render, this);
   },
   render: function() {
-    c3.generate(this.collection.c3());
+    c3.generate({
+      data: { columns: this.collection.data() },
+      legend: { show: false },
+      axis : {
+        x: { label: this.collection.first().get('timeUnits') },
+        y: {
+          tick: { format: function (d) { return '$' + numeral(d).format('0,0'); } },
+          label: 'amount'
+        }
+      }
+    });
   }
 });
