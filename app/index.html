@@ -39,8 +39,16 @@
             </div>
             
             <div class="row">
-                <div class="col-md-9" id="accounts"></div>
+                <div class="col-md-9">
+                    <table class="table" id="accounts"></table>
+                </div>
                 <div class="col-md-3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="add-account"></div>
+                </div>
             </div>
 
             <div class="footer">
@@ -48,17 +56,45 @@
             </div>
 
         </div>
+        
+        <script id="add-account-template" type="text/x-handlebars-template">
+            <form class="form" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="new-account-name" placeholder="Name">
+                </div>
+                <div class="form-group" class="col-md-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="number" class="form-control" id="new-account-base-amount" placeholder="Base Amount">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="new-account-interest-rate" placeholder="Interest Rate">
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="new-account-duration" placeholder="Duration">
+                        <span class="input-group-addon">years</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit-new-account">Add</button>
+            </form>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/d3/d3.js"></script>
-        <script src="bower_components/c3/c3.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/numeral/numeral.js"></script>
         <script src="bower_components/moment/moment.js"></script>
+        <script src="bower_components/d3/d3.js"></script>
+        <script src="bower_components/c3/c3.min.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -79,10 +115,11 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/models/account.js"></script>
-        <script src="scripts/models/dataset.js"></script>
+        <script src="scripts/models/accounts.js"></script>
         <script src="scripts/views/chart.js"></script>
         <script src="scripts/views/account.js"></script>
         <script src="scripts/views/accounts.js"></script>
+        <script src="scripts/views/add-account.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -2,6 +2,8 @@
 
 var AccountsView = Backbone.View.extend({
   el: '#accounts',
+  tagName: 'table',
+  className: 'table',
   initialize: function () {
     _.bindAll(this, 'render');
     this.collection.on('change', this.render, this);
@@ -9,10 +11,25 @@ var AccountsView = Backbone.View.extend({
   },
   render: function () {
     this.$el.empty();
+    
+    this.$el.append(
+      '<thead>' +
+        '<tr>' +
+          '<th>Name</th>' +
+          '<th>Base Amount</th>' +
+          '<th>Interest Rate</th>' +
+          '<th>Duration</th>' +
+          '<th>Final Amount</th>' +
+        '</tr>' +
+      '</thead>'
+    );
+    
+    var $tbody = $('<tbody></tbody>');
     this.collection.models.forEach(function (account) {
       var view = new AccountView({ model: account });
-      this.$el.append(view.render().el);
+      $tbody.append(view.render().el);
     }, this);
+    this.$el.append($tbody);
     return this;
   }
 });

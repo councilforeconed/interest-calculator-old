@@ -18,7 +18,7 @@
       });
     });
     it('should have an annual data array that is the term length + 2', function () {
-      assert.equal(account.data('years').length, account.get('term') + 2)
+      assert.equal(account.data('years').length, account.get('term') + 2);
     });
   });
 })();
