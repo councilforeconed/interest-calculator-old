@@ -32,17 +32,15 @@
                 <h3>Interest Calculator</h3>
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="chart"></div>
-                </div>
-            </div>
+            <div id="chart"></div>
             
             <div class="row">
                 <div class="col-md-9">
                     <table class="table" id="accounts"></table>
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <div id="settings" class="well"></div>
+                </div>
             </div>
             
             <div class="row">
@@ -58,30 +56,49 @@
         </div>
         
         <script id="add-account-template" type="text/x-handlebars-template">
-            <form class="form" role="form">
-                <div class="form-group">
+            <h4>Add a New Account or Loan</h4>
+            <form class="form row" role="form">
+                <div class="form-group col-md-4">
                     <input type="text" class="form-control" id="new-account-name" placeholder="Name">
                 </div>
-                <div class="form-group" class="col-md-2">
+                <div class="form-group col-md-2">
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
                         <input type="number" class="form-control" id="new-account-base-amount" placeholder="Base Amount">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <div class="input-group">
                         <input type="number" class="form-control" id="new-account-interest-rate" placeholder="Interest Rate">
                         <span class="input-group-addon">%</span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-2">
                     <div class="input-group">
                         <input type="number" class="form-control" id="new-account-duration" placeholder="Duration">
                         <span class="input-group-addon">years</span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" id="submit-new-account">Add</button>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary btn-block" id="submit-new-account">Add</button>
+                </div>
             </form>
+        </script>
+        
+        <script id="settings-template" type="text/x-handlebars-template">
+            <h5>Account Type</h5>
+            <div class="radio">
+              <label>
+                <input type="radio" name="settings" id="optionsRadios1" value="savings" checked>
+                Savings Account
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="settings" id="optionsRadios2" value="loan">
+                Loan
+              </label>
+            </div>
         </script>
 
         <!-- build:js scripts/vendor.js -->
@@ -120,6 +137,7 @@
         <script src="scripts/views/account.js"></script>
         <script src="scripts/views/accounts.js"></script>
         <script src="scripts/views/add-account.js"></script>
+        <script src="scripts/views/settings.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -1,4 +1,5 @@
 /*global describe, it, Account, assert */
+
 'use strict';
 (function () {
   describe('Account class', function () {

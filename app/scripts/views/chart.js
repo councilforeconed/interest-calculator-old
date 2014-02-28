@@ -4,21 +4,34 @@ var ChartView = Backbone.View.extend({
   el: '#chart',
   initialize: function () {
     _.bindAll(this, 'render');
-    this.collection.on('change', this.render, this);
-    this.collection.on('add', this.render, this);
+    this.collection.on('change', this.rerender, this);
+    this.collection.on('add', this.rerender, this);
+    this.collection.on('remove', this.unrender, this);
   },
   render: function() {
-    c3.generate({
+    this._chart = c3.generate({
       data: { columns: this.collection.data() },
       legend: { show: false },
-      height: 300,
       axis : {
-        x: { label: this.collection.first().get('timeUnits') },
+        x: { label: 'years' },
         y: {
           tick: { format: function (d) { return '$' + numeral(d).format('0,0'); } },
           label: 'amount'
         }
       }
     });
+  },
+  rerender: function () {
+    this._chart.load({
+      columns: this.collection.data()
+    });
+  },
+  unrender: function () {
+    var removed = this.collection._removed.pop();
+    
+    if (removed) {
+      this._chart.unload(removed);
+    }
+    this.render();
   }
 });

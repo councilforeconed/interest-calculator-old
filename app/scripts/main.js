@@ -1,4 +1,4 @@
-/* global DataSet, ChartView, AccountsView, Accounts, AddAccountView */
+/* global DataSet, ChartView, AccountsView, Accounts, AddAccountView, SettingsView */
 
 var dataset = new Accounts();
 dataset.add({ name: 'First Financial', rate: 5 });
@@ -12,3 +12,6 @@ accountsView.render();
 
 var addAccountsView = new AddAccountView({ collection: dataset });
 addAccountsView.render();
+
+var settingsView = new SettingsView({ collection: dataset });
+settingsView.render();
