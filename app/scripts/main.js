@@ -1,6 +1,6 @@
 /* global DataSet, ChartView, AccountsView */
 
-var dataset = new DataSet();
+var dataset = new Accounts();
 dataset.add({ name: 'First Financial', rate: 5 });
 dataset.add({ name: 'Secondary Savings', rate: 4.5 });
 

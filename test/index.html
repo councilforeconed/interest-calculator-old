@@ -11,9 +11,16 @@
     <script>mocha.setup('bdd')</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
-    <script>var expect = chai.expect</script>
+    <script>var assert = chai.assert</script>
 
     <!-- include source files here... -->
+    <script src="../app/bower_components/jquery/jquery.js"></script>
+    <script src="../app/bower_components/underscore/underscore.js"></script>
+    <script src="../app/bower_components/backbone/backbone.js"></script>
+    <script src="../app/bower_components/numeral/numeral.js"></script>
+    <script src="../app/bower_components/moment/moment.js"></script>
+    <script src="../app/scripts/models/account.js"></script>
+    <script src="../app/scripts/models/dataset.js"></script>
 
     <!-- include spec files here... -->
     <script src="spec/test.js"></script>

@@ -11,6 +11,7 @@ var ChartView = Backbone.View.extend({
     c3.generate({
       data: { columns: this.collection.data() },
       legend: { show: false },
+      height: 300,
       axis : {
         x: { label: this.collection.first().get('timeUnits') },
         y: {
