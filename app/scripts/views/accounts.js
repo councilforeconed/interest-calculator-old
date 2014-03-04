@@ -21,7 +21,6 @@ var AccountsView = Backbone.View.extend({
           '<th class="hidden-xs">Base Amount</th>' +
           '<th>Interest Rate</th>' +
           '<th>Duration</th>' +
-          '<th>Final Amount</th>' +
         '</tr>' +
       '</thead>'
     );
@@ -30,6 +29,7 @@ var AccountsView = Backbone.View.extend({
       this.$('thead tr').append('<th>Monthly Payments</th>');
     }
     
+    this.$('thead tr').append('<th>Final Amount</th>');
     this.$('thead tr').append('<th class="hidden-xs"><span class="glyphicon glyphicon-cog"></span></th>');
     
     var $tbody = $('<tbody></tbody>');
