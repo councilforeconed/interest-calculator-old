@@ -24,6 +24,8 @@ module.exports = function (grunt) {
       app: 'app',
       dist: 'dist'
     },
+    
+    pkg: grunt.file.readJSON('package.json'),
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -348,6 +350,14 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+    
+    exec: {
+      deploy: {
+        command: 'scp -r dist/* cee:~/technology/<%= pkg.name %>',
+        stdout: true,
+        stderr: true
+      }
     }
   });
 
@@ -399,6 +409,11 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
+  ]);
+  
+  grunt.registerTask('deploy', [
+    'build',
+    'exec:deploy'
   ]);
 
   grunt.registerTask('default', [
